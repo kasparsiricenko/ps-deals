@@ -4,7 +4,7 @@ This is an updated version of my PS4 Deals client app which didn't have backend 
 This version is improved significantly and has backend and requests it directly from PS Store and shows the results.
 
 ## Reasoning
-It was developed to see the best discount by pervent and by discounted price. Unfortunately PS Store doesn't support sorting by discounted price, only by original price. This app tries to close this gap.
+It was developed to see the best discount by percentage and by discounted price. Unfortunately PS Store doesn't support sorting by discounted price, only by original price. This app tries to close this gap.
 
 ## How to
 * To start application use `yarn start` command. 
