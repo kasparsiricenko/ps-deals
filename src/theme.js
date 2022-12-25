@@ -8,6 +8,7 @@ export default createTheme({
     },
     text: {
       primary: '#BDC1C6',
+      secondary: '#969BA1',
     },
   },
   typography: {

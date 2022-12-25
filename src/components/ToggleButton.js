@@ -19,7 +19,7 @@ const useStyles = makeStyles()(() => ({
     padding: '7px 8px',
     minHeight: 0,
     height: 35,
-
+    flexShrink: 0,
     transform: 'rotate(0)',
   },
   toggled: {},

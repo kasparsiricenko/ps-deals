@@ -11,10 +11,12 @@ export default function SkeletonCards({ loading }) {
         {Array.from(Array(30)).map(() => (
           <div className={classes.card}>
             <Skeleton className={classes.image} />
-            <Skeleton className={classes.originalPrice} />
-            <Skeleton className={classes.discountedPrice} />
-            <Skeleton className={classes.discountPercentage} />
-            <Skeleton className={classes.productName} />
+            <div className={classes.content}>
+              <Skeleton className={classes.originalPrice} />
+              <Skeleton className={classes.discountedPrice} />
+              <Skeleton className={classes.discountPercentage} />
+              <Skeleton className={classes.productName} />
+            </div>
           </div>
         ))}
       </>
@@ -25,37 +27,53 @@ export default function SkeletonCards({ loading }) {
   return loading && skeletons
 }
 
-const useStyles = makeStyles()(() => ({
+const useStyles = makeStyles()((theme) => ({
   card: {
-    width: 192,
-    minHeight: 304,
+    width: 194,
+    border: `1px solid ${theme.palette.grey[800]}`,
+    borderRadius: 2,
+  },
+  content: {
     position: 'relative',
-    display: 'grid',
-    gridTemplateRows: '192px 20px 25px 1fr',
-    alignItems: 'center',
+    display: 'flex',
+    flexDirection: 'column',
   },
   image: {
-    width: 192,
+    width: '100%',
     height: 192,
-    minWidth: 192,
-    minHeight: 192,
+    transform: 'unset',
+    borderRadius: 'unset',
   },
   originalPrice: {
-    width: 40,
+    width: 36,
     height: 15,
+    alignSelf: 'end',
+    transform: 'unset',
+    marginTop: 10,
+    marginRight: 6,
   },
   discountedPrice: {
-    width: 70,
-    height: 24,
+    width: 52,
+    height: 22,
+    alignSelf: 'end',
+    transform: 'unset',
+    marginRight: 6,
+    marginTop: 8,
   },
   discountPercentage: {
-    height: 20,
-    width: 70,
+    height: 22,
+    transform: 'unset',
+    width: 55,
     position: 'absolute',
-    top: '194px',
+    top: 8,
+    left: 4,
   },
   productName: {
-    width: 140,
-    height: 24,
+    width: 160,
+    height: 20,
+    margin: 8,
+    marginTop: 20,
+    transform: 'unset',
+    marginBottom: 10,
   },
 }))

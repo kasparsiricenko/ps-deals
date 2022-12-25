@@ -22,6 +22,7 @@ const useStyles = makeStyles()(() => ({
     minWidth: 0,
     padding: '7px 8px',
     minHeight: 0,
+    flexShrink: 0,
     height: 35,
     width: 35,
     transition: 'all 200ms cubic-bezier(0.63, 0, 0.54, 0.98)',

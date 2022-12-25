@@ -1,38 +1,45 @@
-import { Button, Container } from '@mui/material'
+import { useEffect, useState } from 'react'
 import { makeStyles } from 'tss-react/mui'
 import axios from 'axios'
-import React, { useState } from 'react'
+
+import useLocalStorage from './hooks/useLocalStorage'
+
+import { Container } from '@mui/material'
 import getSortedProducts from './utils/getSortedProducts'
 import ReverseButton from './components/ReverseButton'
 import ToggleButton from './components/ToggleButton'
 import Cards from './components/Cards'
 import SkeletonCards from './components/SkeletonCards'
-import { productsMock } from './__mocks__/products.mock'
 
 export default function App() {
   const { classes } = useStyles()
-  const [rawProducts, setRawProducts] = useState(productsMock)
+  const [rawProducts, setRawProducts] = useState([])
   const [products, setProducts] = useState([])
-  const [sortBy, setSortBy] = useState('discount')
-  const [ascending, setAscending] = useState(false)
+  const [sortBy, setSortBy] = useLocalStorage('sortBy', 'discount')
+  const [ascending, setAscending] = useLocalStorage('ascending', false)
   const [loading, setLoading] = useState(true)
 
-  // React.useEffect(() => {
-  //   axios.get('./getProducts').then((response) => {
-  //     setRawProducts(response.data)
-  //   })
-  // }, [])
+  useEffect(() => {
+    axios.get('./getProducts').then((response) => {
+      setRawProducts(response.data)
+    })
+  }, [])
 
-  React.useEffect(() => {
-    setProducts(getSortedProducts(rawProducts, ascending, sortBy))
-    setLoading(false)
+  useEffect(() => {
+    const newProducts = getSortedProducts(rawProducts, ascending, sortBy)
+    if (newProducts.length) {
+      setProducts(newProducts)
+      setLoading(false)
+    }
   }, [rawProducts, sortBy, ascending])
 
   return (
     <Container maxWidth="lg" className={classes.root}>
       <header className={classes.header}>
-        <span className={classes.name}>PS DEALS</span>
-        <div />
+        <h1 className={classes.name}>
+          <a href={'/'}>PS&nbsp;&nbsp;&nbsp;Deals</a>
+        </h1>
+        <div className={classes.space} />
         <ToggleButton
           toggled={sortBy === 'discount'}
           onClick={() => {
@@ -78,9 +85,22 @@ const useStyles = makeStyles()((theme) => ({
     flexDirection: 'column',
   },
   name: {
-    fontWeight: 700,
-    fontSize: 20,
-    flexShrink: 0,
+    fontSize: 36,
+    flexShrink: 1,
+    minWidth: 0,
+    fontFamily: 'cyberpunk',
+    margin: 0,
+    '& > a': {
+      color: 'white !important ',
+      textDecoration: 'unset !important',
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '6vw',
+    },
+  },
+  space: {
+    width: 50,
+    flex: '0 1 50',
   },
   header: {
     flex: '0 0 70px',

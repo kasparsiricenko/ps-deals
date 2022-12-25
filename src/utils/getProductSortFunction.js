@@ -3,8 +3,8 @@ export default function getProductSortFunction(ascending, sortBy) {
     case 'discount': {
       return (a, b) =>
         ascending
-          ? a.price.discountText - b.price.discountText
-          : b.price.discountText - a.price.discountText
+          ? a.price.discountPercentage - b.price.discountPercentage
+          : b.price.discountPercentage - a.price.discountPercentage
     }
     case 'price': {
       return (a, b) =>

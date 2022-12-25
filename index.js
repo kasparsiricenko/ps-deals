@@ -5,7 +5,7 @@ const app = express()
 
 app.use(express.static('build'))
 
-app.use(require('./routes/api'))
+app.use(require('./routes/getProducts'))
 
 app.use(function (req, res, next) {
   next(createError(404))

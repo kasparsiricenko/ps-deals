@@ -1,6 +1,6 @@
 const axios = require('axios')
 
-module.exports = requestProducts = function () {
+module.exports = function () {
   return axios.get('https://web.np.playstation.com/api/graphql/v1//op', {
     params: {
       operationName: 'categoryGridRetrieve',

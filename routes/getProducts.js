@@ -11,11 +11,12 @@ module.exports = router.get('/getProducts', async function (req, res, next) {
       .filter((product) => product.price.discountText !== null)
       .map((product) => ({
         ...product,
+        media: product.media.find((mediaItem) => mediaItem.role === 'MASTER'),
         price: {
           ...product.price,
-          basePrice: Number(product.price.basePrice.substring(3)),
-          discountedPrice: Number(product.price.discountedPrice.substring(3)),
-          discountText: Number(
+          basePrice: Number(product.price.basePrice.substring(1)),
+          discountedPrice: Number(product.price.discountedPrice.substring(1)),
+          discountPercentage: Number(
             product.price.discountText.substring(
               1,
               product.price.discountText.length - 1
