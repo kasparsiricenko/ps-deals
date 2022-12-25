@@ -1,7 +1,7 @@
 # PS Deals
 
-This is an updated version of my PS4 Deals client app which didn't have backend and it only had support of JSON files. Which is not convienient.
-This version has backend and requests it from PS Store and shows the results.
+This is an updated version of my PS4 Deals client app which didn't have backend and it only had support of JSON files which is not convienient.
+This version is improved significantly and has backend and requests it directly from PS Store and shows the results.
 
 ## Reasoning
 It was developed to see the best discount by pervent and by discounted price. Unfortunately PS Store doesn't support sorting by discounted price, only by original price. This app tries to close this gap.
