@@ -1,4 +1,4 @@
-PS Deals
+# PS Deals
 
 This is an updated version of my PS4 Deals client app which didn't have client and required use of getting JSON file and open it.
 This version has backend and requests it from PS Store and shows the results.
