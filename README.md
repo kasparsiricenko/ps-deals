@@ -10,4 +10,6 @@ It was developed to see the best discount by percentage and by discounted price.
 * To start application use `yarn start` command. 
 * Open application on http://localhost:5000
 
+## Screenshot
+
 ![image](https://user-images.githubusercontent.com/64709398/209454841-42a2f2fe-16cb-4e8d-953f-7c905793fa1d.png)
