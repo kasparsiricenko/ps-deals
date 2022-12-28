@@ -1,6 +1,6 @@
 # PS Deals
 
-This is an updated version of my PS4 Deals client app which didn't have backend and it only had support of JSON files which is not convienient.
+This is an app which didn't have backend and it only had support of JSON files which is not convienient.
 This version is improved significantly and has backend and requests it directly from PS Store and shows the results.
 
 ## Reasoning
